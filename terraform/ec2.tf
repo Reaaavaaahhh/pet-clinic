@@ -86,43 +86,6 @@ resource "aws_security_group" "k8s_security_group" {
   }
 }
 
-//resource "aws_iam_role" "ec2_role" {
-//  name = var.vh_k8s_iam_role_name
-//  assume_role_policy = <<EOF
-//{
-//  "Version": "2012-10-17",
-//  "Statement": [
-//    {
-//      "Action": "sts:AssumeRole",
-//      "Principal": {
-//        "Service": "ec2.amazonaws.com"
-//      },
-//      "Effect": "Allow",
-//      "Sid": ""
-//    }
-//  ]
-//}
-//EOF
-//}
-
-//data "aws_iam_policy" "AmazonEC2ContainerRegistryFullAccess" {
-//  arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
-//}
-//
-//resource "aws_iam_role_policy_attachment" "policyAttachment" {
-//  policy_arn = data.aws_iam_policy.AmazonEC2ContainerRegistryFullAccess.arn
-//  role = aws_iam_role.ec2_role.name
-//}
-//
-//resource "aws_iam_instance_profile" "ec2_instance_profile" {
-//  name = var.iam_instance_profile_name
-//  role = var.vh_k8s_iam_role_name
-//}
-
-#data aws_iam_instance_profile "ec2_instance_profile" {
-#  name = var.iam_instance_profile_name
-#}
-
 resource "aws_instance" "cb_k8s_master" {
   subnet_id = "subnet-0669667997919f922"
   ami = var.ami
