@@ -43,8 +43,8 @@ variable "iam_role_policy_name" {
 variable "aws_credentials" {
   type = map
   default = {
-    access_key = "AKIAUTAWYMQ4TAS5QXIA"
-    secret_key = "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"
+    access_key = ""
+    secret_key = ""
     region = "us-east-1"
   }
 }
