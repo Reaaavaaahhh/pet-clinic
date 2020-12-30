@@ -29,17 +29,13 @@ variable "ssh_key_name" {
 variable "security_group_name" {
   default = "cb_k8s-security-group"
 }
-variable "vh_k8s_iam_role_name" {
-  default = "cb_k8s_iam_role"
-}
+
 
 variable "iam_role_policy_name" {
   default = "cb_k8s_iam_role_policy"
 }
 
-#variable "iam_instance_profile_name" {
-#  default = "cb_k8s_instance_profile"
-#}
+
 variable "aws_credentials" {
   type = map
   default = {
