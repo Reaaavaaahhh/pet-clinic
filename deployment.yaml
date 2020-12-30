@@ -1,0 +1,49 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: test-app
+  labels:
+    name: test-app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-deployment
+  namespace: pet-clinic
+  labels:
+    app: petclinic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic
+  template:
+    metadata:
+      namespace: pet-clinic
+      labels:
+        app: petclinic
+    spec:
+      containers:
+        - name: petclinic-container
+          image: 
+          ports:
+            - containerPort: 8080
+      hostNetwork: true
+      dnsPolicy: ClusterFirst
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic-service
+  namespace: pet-clinic
+spec:
+  type: NodePort
+  selector:
+    app: petclinic
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30002
