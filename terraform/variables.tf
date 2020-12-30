@@ -30,12 +30,6 @@ variable "security_group_name" {
   default = "cb_k8s-security-group"
 }
 
-
-variable "iam_role_policy_name" {
-  default = "cb_k8s_iam_role_policy"
-}
-
-
 variable "aws_credentials" {
   type = map
   default = {
