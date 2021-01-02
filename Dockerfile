@@ -1,3 +1,3 @@
 FROM tomcat:8
-COPY target/*.war /usr/local/tomcat/webapps/myweb.war
+COPY target/*.jar /usr/local/tomcat/webapps/pet-clinic.jar
 # Added to test webhook
