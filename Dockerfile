@@ -1,3 +1,3 @@
-FROM tomcat:8
+FROM openjdk
 COPY target/*.jar /usr/local/tomcat/webapps/pet-clinic.jar
 # Added to test webhook
