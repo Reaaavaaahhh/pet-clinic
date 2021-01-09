@@ -7,6 +7,9 @@ node("slave") {
         def mvnCMD = "${mvnHome}/bin/mvn"
         sh "${mvnCMD} clean package"
     }
+    stage ('move snapshot to dockerfile directory'){
+        sh 'cp /home/vagrant/workspace/jenkins-file_master/target/spring-petclinic-2.4.0.BUILD-SNAPSHOT.jar /home/vagrant/workspace/jenkins-file_master'
+    }    
     stage('Build Docker Image'){
         sh 'sudo docker build -t reaaavaaahhh/pet-clinic:2.3.3 .'
     }
