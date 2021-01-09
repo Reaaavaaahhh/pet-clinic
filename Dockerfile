@@ -1,3 +1,5 @@
 FROM openjdk
-COPY target/*.jar /usr/local/tomcat/webapps/pet-clinic.jar
-# Added to test webhook
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN javac Main.java
+CMD ["java", "Main"]
