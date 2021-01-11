@@ -40,6 +40,9 @@
     #    service: name=docker state=started
     #notify:
     #  - docker status
+  - name: Disable firewall
+    become: true
+    command: systemctl stop ufw    
 
   - name: Add vagrant user to docker group
     user:
