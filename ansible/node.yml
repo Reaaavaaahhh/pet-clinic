@@ -2,6 +2,10 @@
 - hosts: all
   become: true
   tasks:
+  - name: Disable firewall
+    become: true
+    command: systemctl stop ufw
+    
   - name: Install packages that allow apt to be used over HTTPS
     apt:
       name: "{{ packages }}"
