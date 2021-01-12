@@ -38,4 +38,5 @@ node("master") {
         always {
             cleanWs()
         }
+    }
 }
