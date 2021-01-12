@@ -19,9 +19,9 @@ node("master") {
     } 
         sh 'docker push reaaavaaahhh/pet-clinic:2.3.3'
     }
-    //stage('Vagrant destroy'){
-    //    sh 'sudo -H -u reaaavaaahhh bash -c cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant destroy -f'
-    //}
+    stage('Vagrant destroy'){
+        sh 'sudo -H -u reaaavaaahhh bash -c cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant destroy -f'
+    }
     //stage('Docker image pull'){
     //    sh 'docker pull reaaavaaahhh/pet-clinic:2.3.3'
     //}
@@ -31,9 +31,9 @@ node("master") {
     //    sh "ssh -o StrictHostKeyChecking=no vagrant@192.168.50.10 ${dockerRun}"
     // }
     //}
-    stage('Run Vagrant'){
-        sh 'sudo -H -u reaaavaaahhh bash -c cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant up'
-    }
+    //stage('Run Vagrant'){
+    //    sh 'cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant up'
+    //}
     stage('CleanWs'){
         always {
             cleanWs deleteDirs: true, notFailBuild: true
