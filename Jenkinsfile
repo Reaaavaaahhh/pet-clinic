@@ -11,7 +11,7 @@ node("master") {
         sh 'cp /var/lib/jenkins/workspace/jenkins-file_master/target/spring-petclinic-2.4.0.BUILD-SNAPSHOT.jar /var/lib/jenkins/workspace/jenkins-file_master'
     }
     stage('Build Docker Image'){
-        sh 'sudo docker build -t -s reaaavaaahhh/pet-clinic:2.3.3 .'
+        sh 'docker build -t -s reaaavaaahhh/pet-clinic:2.3.3 .'
     }
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'docker_hub_password', variable: 'dockerHubcredentials')]) {
