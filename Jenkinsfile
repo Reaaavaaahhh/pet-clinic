@@ -1,4 +1,4 @@
-node("slave") {
+node("any") {
     stage('SCM Checkout'){
         git credentialsId: 'bc635477-1fa6-4ffa-8b38-2d68f72282e9', url: 'https://github.com/Reaaavaaahhh/pet-clinic.git' 
     }
