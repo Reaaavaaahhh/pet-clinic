@@ -39,3 +39,4 @@ node("master") {
             cleanWs()
         }
     }
+}
