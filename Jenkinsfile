@@ -15,15 +15,15 @@ node("master") {
     }
     stage('Push Docker Image'){
         withCredentials([string(credentialsId: 'docker_hub_password', variable: 'dockerHubcredentials')]) {
-          sh "sudo docker login -u reaaavaaahhh -p ${dockerHubcredentials}"
+          sh "docker login -u reaaavaaahhh -p ${dockerHubcredentials}"
     } 
-        sh 'sudo docker push reaaavaaahhh/pet-clinic:2.3.3'
+        sh 'docker push reaaavaaahhh/pet-clinic:2.3.3'
     }
     stage('Docker image pull'){
-        sh 'sudo docker pull reaaavaaahhh/pet-clinic:2.3.3'
+        sh 'docker pull reaaavaaahhh/pet-clinic:2.3.3'
     }
     stage('Run Container on Dev Server'){
-      def dockerRun = 'sudo docker run -p 8080:8080 -d --name pet-clinic reaaavaaahhh/pet-clinic:2.3.3'
+      def dockerRun = 'docker run -p 8080:8080 -d --name pet-clinic reaaavaaahhh/pet-clinic:2.3.3'
       sshagent(['eae5313a-df90-4833-9db4-cf694c1a8490']) {
         sh "ssh -o StrictHostKeyChecking=no vagrant@192.168.50.10 ${dockerRun}"
       }
