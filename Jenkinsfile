@@ -9,7 +9,7 @@ node("any") {
     }
     stage ('move snapshot to dockerfile directory'){
         sh 'cp /home/vagrant/workspace/jenkins-file_master/target/spring-petclinic-2.4.0.BUILD-SNAPSHOT.jar /home/vagrant/workspace/jenkins-file_master'
-    }    
+    }
     stage('Build Docker Image'){
         sh 'sudo docker build -t reaaavaaahhh/pet-clinic:2.3.3 .'
     }
@@ -21,11 +21,14 @@ node("any") {
     }
     stage('Docker image pull'){
         sh 'sudo docker pull reaaavaaahhh/pet-clinic:2.3.3'
-    }    
+    }
     stage('Run Container on Dev Server'){
       def dockerRun = 'sudo docker run -p 8080:8080 -d --name pet-clinic reaaavaaahhh/pet-clinic:2.3.3'
       sshagent(['eae5313a-df90-4833-9db4-cf694c1a8490']) {
         sh "ssh -o StrictHostKeyChecking=no vagrant@192.168.50.10 ${dockerRun}"
       }
+    }
+    stage('Run Vagrant'){
+        sh 'cd /kubernetes; vagrant up'
     }
 }
