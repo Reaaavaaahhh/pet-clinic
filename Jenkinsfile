@@ -37,6 +37,7 @@ node("master") {
     post {
         always {
             cleanWs()
+            cleanWhenSuccess(true)
         }
     }
 }
