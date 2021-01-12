@@ -29,6 +29,6 @@ node("master") {
     // }
     //}
     stage('Run Vagrant'){
-        sh 'cd /kubernetes; vagrant up'
+        sh 'cd /ansible; vagrant up'
     }
 }
