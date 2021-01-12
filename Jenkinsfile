@@ -20,7 +20,7 @@ node("master") {
         sh 'docker push reaaavaaahhh/pet-clinic:2.3.3'
     }
     stage('Vagrant destroy'){
-        sh 'cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant destroy -f'
+        sh 'sudo -H -u reaaavaaahhh bash -c cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant destroy -f'
     }
     //stage('Docker image pull'){
     //    sh 'docker pull reaaavaaahhh/pet-clinic:2.3.3'
