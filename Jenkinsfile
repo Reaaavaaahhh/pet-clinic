@@ -31,7 +31,7 @@ node("master") {
     //    sh "ssh -o StrictHostKeyChecking=no vagrant@192.168.50.10 ${dockerRun}"
     // }
     //}
-    stage('Run Vagrant'){
-        sh 'sudo -H -u reaaavaaahhh bash -c cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant up --provision'
-    }
+    //stage('Run Vagrant'){
+    //    sh 'sudo -H -u reaaavaaahhh bash -c cd /var/lib/jenkins/workspace/jenkins-file_master/ansible; vagrant up --provision'
+    //}
 }
