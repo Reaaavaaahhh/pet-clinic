@@ -120,11 +120,11 @@
     become: false
    - name: Copy k8s deployment
     ansible.builtin.copy:
-      src: /home/reaaavaaahhh/kubernetes/pet-clinic-deployment.yaml
+      src: /var/lib/jenkins/workspace/jenkins-file_master/ansible/pet-clinic-deployment.yaml
       dest: /etc/pet-clinic-deployment.yaml
   - name: Copy k8s service
     ansible.builtin.copy:
-      src: /home/reaaavaaahhh/kubernetes/pet-clinic-service.yaml
+      src: /var/lib/jenkins/workspace/jenkins-file_master/ansible/pet-clinic-service.yaml
       dest: /etc/pet-clinic-service.yaml  
   - name: Run deployment 
     become: false
