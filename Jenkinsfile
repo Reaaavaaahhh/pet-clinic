@@ -32,7 +32,7 @@ node("master") {
     // }
     //}
     stage('Run Vagrant'){
-        sh 'sudo -H -u reaaavaaahhh bash -c cd /var/lib/jenkins/workspace/jenkins-file_master/ansible/; vagrant up'
+        sh 'cd /var/lib/jenkins/workspace/jenkins-file_master/ansible/; vagrant up'
     }
     stage('CleanWs'){
         always {
