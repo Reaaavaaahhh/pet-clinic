@@ -32,7 +32,7 @@ node("master") {
     // }
     //}
     stage('Run Vagrant'){
-        sh 'cd /var/lib/jenkins/workspace/jenkins-file_master/ansible/; vagrant up --[no-]destroy-on-error'
+        sh 'cd /var/lib/jenkins/workspace/jenkins-file_master/ansible/; vagrant up'
     }
     stage('Vagrant shutdown??'){
         sh 'echo Does it work?'
