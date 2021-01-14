@@ -34,6 +34,9 @@ node("master") {
     stage('Run Vagrant'){
         sh 'cd /var/lib/jenkins/workspace/jenkins-file_master/ansible/; vagrant up'
     }
+    stage('Run Vagrant'){
+        sh 'echo Does it work?'
+    }    
     //stage('CleanWs'){
     //    always {
     //        cleanWs deleteDirs: true, notFailBuild: true
