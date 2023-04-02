@@ -17,7 +17,7 @@ pipeline {
             steps {
                  container('docker') {
                     retry(2) {
-                        sh "docker run hello-world"
+                        sh "docker build -t reaaavaaahhh/petclinit:v1 ."
                 }
           }
         }
